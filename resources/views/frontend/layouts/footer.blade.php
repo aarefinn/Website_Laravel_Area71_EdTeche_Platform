@@ -4,90 +4,85 @@
 		<!-- Footer Top -->
 		<div class="footer-top section">
 			<div class="container">
-				<div class="row">
+				<div class="row justify-content-center text-center"> <!-- Center Content -->
 					<div class="col-lg-5 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="index.html"><img src="{{asset('backend/img/logo2.png')}}" alt="#"></a>
+								<a href="{{ route('home') }}">
+									<img src="{{ asset('storage/photos/1/logofooter.png') }}" alt="Area71 Logo">
+								</a>
 							</div>
-							@php
-								$settings=DB::table('settings')->get();
-							@endphp
-							<p class="text">@foreach($settings as $data) {{$data->short_des}} @endforeach</p>
-							<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">@foreach($settings as $data) {{$data->phone}} @endforeach</a></span></p>
+							
+							<p class="call">Got Questions? Call us 24/7
+								<span><a href="tel:+8809613247171">
+								</a></span>
+							</p>
 						</div>
-						<!-- End Single Widget -->
 					</div>
+
+					<!-- Information Links -->
 					<div class="col-lg-2 col-md-6 col-12">
-						<!-- Single Widget -->
-						<div class="single-footer links">
+						<div class="single-footer links text-left">
 							<h4>Information</h4>
 							<ul>
-								<li><a href="{{route('about-us')}}">About Us</a></li>
-								<li><a href="#">Faq</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
-								<li><a href="{{route('contact')}}">Contact Us</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="{{ route('home') }}">Home</a></li>
+								<li><a href="{{ route('course.page') }}">Courses</a></li>
+								<li><a href="{{ route('about-us') }}">About Us</a></li>
+								<li><a href="{{ route('contact') }}">Contact Us</a></li>
 							</ul>
 						</div>
-						<!-- End Single Widget -->
 					</div>
-					<div class="col-lg-2 col-md-6 col-12">
-						<!-- Single Widget -->
-						<div class="single-footer links">
-							<h4>Customer Service</h4>
-							<ul>
-								<li><a href="#">Payment Methods</a></li>
-								<li><a href="#">Money-back</a></li>
-								<li><a href="#">Returns</a></li>
-								<li><a href="#">Shipping</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-						<!-- End Single Widget -->
-					</div>
+
+					<!-- Address & Contact Info -->
 					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Single Widget -->
-						<div class="single-footer social">
-							<h4>Get In Tuch</h4>
-							<!-- Single Widget -->
+						<div class="single-footer social text-left">
+							<h4>Address</h4>
 							<div class="contact">
-								<ul>
-									<li>@foreach($settings as $data) {{$data->address}} @endforeach</li>
-									<li>@foreach($settings as $data) {{$data->email}} @endforeach</li>
-									<li>@foreach($settings as $data) {{$data->phone}} @endforeach</li>
+								<ul style="list-style: none; padding: 0;">
+									<li style="display: flex; align-items: center; gap: 8px;">
+										<i class="fa fa-phone"></i>
+										<a href="tel:+8809613247171" style="text-decoration: none; color: white;">
+											+8809613247171
+										</a>
+									</li>
+									<li style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+										<i class="fa fa-envelope"></i>
+										<a href="mailto:info@area71bd.com" style="text-decoration: none; color: white;">
+											info@area71bd.com
+										</a>
+									</li>
+									<li style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+										<i class="fa fa-map-marker"></i>
+										<span>Uttara, Dhaka, Bangladesh</span>
+									</li>
 								</ul>
 							</div>
-							<!-- End Single Widget -->
-							<div class="sharethis-inline-follow-buttons"></div>
 						</div>
-						<!-- End Single Widget -->
 					</div>
+
 				</div>
 			</div>
 		</div>
 		<!-- End Footer Top -->
 		<div class="copyright">
 			<div class="container">
-				<div class="inner">
-					<div class="row">
-						<div class="col-lg-6 col-12">
-							<div class="left">
-								<p>Copyright © {{date('Y')}} <a href="https://github.com/Prajwal100" target="_blank">Prajwal Rai</a>  -  All Rights Reserved.</p>
-							</div>
-						</div>
-						<div class="col-lg-6 col-12">
-							<div class="right">
-								<img src="{{asset('backend/img/payments.png')}}" alt="#">
-							</div>
-						</div>
+				<div class="row align-items-center justify-content-between">
+					<div class="col-md-6 text-md-left text-center">
+						<p>
+							Copyright © {{ date('Y') }} Area71 Venture Limited - All Rights Reserved.
+						</p>
+					</div>
+					<div class="col-md-6 text-md-right text-center">
+						<img src="{{ asset('backend/img/payments.png') }}" alt="Payments" class="payment-icons">
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</footer>
 	<!-- /End Footer Area -->
+
  
 	<!-- Jquery -->
     <script src="{{asset('frontend/js/jquery.min.js')}}"></script>
