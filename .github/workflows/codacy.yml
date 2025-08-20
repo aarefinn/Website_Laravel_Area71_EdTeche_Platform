@@ -30,7 +30,7 @@ jobs:
           composer install --no-interaction --no-progress --no-scripts --prefer-dist || true
 
       - name: Run Codacy Security Scan
-        uses: codacy/codacy-security-scan@v4
+        uses: codacy/codacy-security-scan@v3
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           upload: true
