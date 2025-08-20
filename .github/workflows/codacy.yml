@@ -5,4 +5,3 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run Codacy Security Scan
-        uses: codacy/codacy-security-scan@v4  # This line can be removed
