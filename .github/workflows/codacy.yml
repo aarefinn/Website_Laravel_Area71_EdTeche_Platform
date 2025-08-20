@@ -2,7 +2,7 @@ name: Codacy Security Scan
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ]   # default branch confirm করে নিন
   pull_request:
 
 permissions:
@@ -13,16 +13,18 @@ permissions:
 jobs:
   codacy-security-scan:
     runs-on: ubuntu-latest
+    env:
+      CODACY_VERBOSE: "true"   # Debug mode enable করা হয়েছে
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # (Optional but helps Laravel repos) – PHP set up & composer install
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
+
       - name: Install Composer deps (no dev, no scripts)
         run: |
           composer install --no-interaction --no-progress --no-scripts --prefer-dist || true
