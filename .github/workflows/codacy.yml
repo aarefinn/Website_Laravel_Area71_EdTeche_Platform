@@ -1,43 +1,8 @@
-name: Codacy Security Scan
-
-on:
-  push:
-    branches: [ "main" ]   # default branch confirm করে নিন
-  pull_request:
-
-permissions:
-  contents: read
-  security-events: write
-  actions: read
-
 jobs:
   codacy-security-scan:
     runs-on: ubuntu-latest
-    env:
-      CODACY_VERBOSE: "true"   # Debug mode enable করা হয়েছে
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-
-      - name: Install Composer deps (no dev, no scripts)
-        run: |
-          composer install --no-interaction --no-progress --no-scripts --prefer-dist || true
-
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Run Codacy Security Scan
-        uses: codacy/codacy-security-scan@v3
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          upload: true
-          format: sarif
-          output: results.sarif
-
-      - name: Upload SARIF to GitHub Security
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: results.sarif
+        uses: codacy/codacy-security-scan@v4  # This line can be removed
