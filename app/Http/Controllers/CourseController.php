@@ -1,45 +1,41 @@
-<?php
-namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Http\Request;
-use App\Models\Course;
-use App\Models\Cart;
-
-class CourseController extends Controller
+public function buyCourse($id)
 {
-    // Show the "/course" page with all available courses
-    public function coursePage()
-    {
-        $courses = Course::all(); // ✅ Fetching all courses
-        return view('frontend.pages.course', compact('courses')); // ✅ Passing data
-    }
-    // Add course to cart
-    public function addToCart($id)
-    {
-        $course = Course::findOrFail($id);
-
-        // Check if cart exists for the user
-        $cart = session()->get('cart', []);
-
-        // Add course to cart session
-        $cart[$id] = [
-            'title' => $course->title,
-            'price' => $course->price,
-            'image' => $course->image
-        ];
-
-        session()->put('cart', $cart);
-
-        return redirect()->back()->with('success', 'Course added to cart!');
+    if (!Auth::check()) {
+        return redirect()->route('login.form')->with('error', 'Please login to buy a course.');
     }
 
-    // Buy Course - Proceed to Checkout
-    public function buyCourse($id)
-    {
-        $course = Course::findOrFail($id);
+    $user = Auth::user();
+    $course = Course::findOrFail($id);
 
-        // Here, you can implement payment gateway integration (e.g., SSLCOMMERZ)
+    // Check if already purchased
+    $existing = DB::table('order_details')
+        ->join('orders', 'order_details.order_id', '=', 'orders.id')
+        ->where('orders.user_id', $user->id)
+        ->where('order_details.course_id', $course->id)
+        ->exists();
 
-        return redirect()->back()->with('success', 'Course purchased successfully!');
+    if ($existing) {
+        return redirect()->route('user')->with('success', 'You already own this course.');
     }
+
+    // Create order
+    $orderId = DB::table('orders')->insertGetId([
+        'user_id' => $user->id,
+        'status' => 'delivered',
+        'total_amount' => $course->price,
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+
+    DB::table('order_details')->insert([
+        'order_id' => $orderId,
+        'course_id' => $course->id,
+        'price' => $course->price,
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+
+    return redirect()->route('user')->with('success', 'Course purchased successfully!');
 }

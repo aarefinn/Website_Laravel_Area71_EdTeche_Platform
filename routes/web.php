@@ -58,7 +58,21 @@ Route::get('login/{provider}/callback/', [LoginController::class, 'Callback'])->
 
 //  **Frontend Pages**
 Route::get('/', [FrontendController::class, 'home'])->name('home');
-Route::get('/home', [FrontendController::class, 'index']);
+Route::get('/home', [FrontendController::class, 'home'])->name('home.page');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard')->middleware('user');
+Route::get('/test-dashboard', function() {
+    return view('dashboard-test', [
+        'user' => \App\Models\User::first(),
+        'orders' => collect([]),
+        'totalOrders' => 0,
+        'totalSpent' => 0,
+        'enrolledCourses' => collect([])
+    ]);
+})->name('test.dashboard');
+Route::get('/test-notification', function() {
+    request()->session()->flash('error', 'This is a test error message!');
+    return redirect()->route('login.form');
+})->name('test.notification');
 Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('about-us');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::post('/contact/message', [MessageController::class, 'store'])->name('contact.store');

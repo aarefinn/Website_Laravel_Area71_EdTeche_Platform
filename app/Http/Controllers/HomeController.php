@@ -9,6 +9,8 @@ use App\Models\ProductReview;
 use App\Models\PostComment;
 use App\Rules\MatchOldPassword;
 use Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -30,7 +32,32 @@ class HomeController extends Controller
 
 
     public function index(){
-        return view('user.index');
+        try {
+            $user = Auth::user();
+            
+            if (!$user) {
+                return redirect()->route('login.form')->with('error', 'Please login first.');
+            }
+            
+            $orders = Order::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(5);
+            $totalOrders = Order::where('user_id', $user->id)->count();
+            $totalSpent = Order::where('user_id', $user->id)->where('status', 'delivered')->sum('total_amount');
+            
+            // Get user's enrolled courses (assuming there's a course enrollment system)
+            $enrolledCourses = DB::table('order_details')
+                ->join('courses', 'order_details.course_id', '=', 'courses.id')
+                ->join('orders', 'order_details.order_id', '=', 'orders.id')
+                ->where('orders.user_id', $user->id)
+                ->where('orders.status', 'delivered')
+                ->select('courses.*')
+                ->get();
+                
+            return view('dashboard', compact('user', 'orders', 'totalOrders', 'totalSpent', 'enrolledCourses'));
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Dashboard Error: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Something went wrong. Please try again.');
+        }
     }
 
     public function profile(){

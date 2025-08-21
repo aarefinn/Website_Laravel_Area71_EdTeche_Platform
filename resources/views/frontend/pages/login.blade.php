@@ -28,6 +28,20 @@
                     <div class="login-form">
                         <h2>Login</h2>
                         <p>Please register in order to checkout more quickly</p>
+                        
+                        <!-- Debug Info -->
+                        @if(session('error'))
+                            <div style="background: red; color: white; padding: 10px; margin: 10px 0; border-radius: 5px;">
+                                DEBUG: Error message found: {{ session('error') }}
+                            </div>
+                        @endif
+                        
+                        @if(session('success'))
+                            <div style="background: green; color: white; padding: 10px; margin: 10px 0; border-radius: 5px;">
+                                DEBUG: Success message found: {{ session('success') }}
+                            </div>
+                        @endif
+                        
                         <!-- Form -->
                         <form class="form" method="post" action="{{route('login.submit')}}">
                             @csrf
@@ -44,7 +58,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Your Password<span>*</span></label>
-                                        <input type="password" name="password" placeholder="" required="required" value="{{old('password')}}">
+                                        <input type="password" name="password" placeholder="" required="required">
                                         @error('password')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
