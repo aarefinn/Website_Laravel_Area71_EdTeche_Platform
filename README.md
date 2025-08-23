@@ -1,27 +1,86 @@
-# Area71 Academy – Localhost Laravel Project
+Access the app 👉 http://127.0.0.1:8000
 
-This is the local version of the **Area71 Academy Training Platform**, a Laravel-based web application developed for managing and delivering online training programs on Amazon FBA and related topics.
+🧰 Tech Stack
 
-## 🔧 Features
+Backend: Laravel 10, PHP 8.1+
 
-- Laravel 10 Framework
-- Authentication (Login/Register)
-- Admin & User Dashboards
-- Course Purchase and Enrollment System
-- SSLCOMMERZ Payment Gateway Integration
-- Order and Order Details Management
-- Responsive Frontend with Blade Templating
-- DataTables for Admin Panel Data Display
-- Modular MVC Architecture
+Database: MySQL
 
-## 📦 Installation Steps
+Frontend: Blade Templating, Bootstrap/Tailwind
 
-1. Clone or download this project.
-2. Run the following commands:
+Payment: SSLCOMMERZ Gateway
 
-```bash
-composer install
-cp .env.example .env
-php artisan key:generate
+Others: DataTables, MVC Pattern
+
+📸 Screenshots
+🏠 Home
+
+
+
+
+
+
+📚 Courses
+
+
+
+
+🛒 Cart & Auth
+
+
+
+
+📞 Contact
+
+🎓 Course Images (Promo)
+Amazon FBA	Bundle	Daraz	Supply Chain
+
+	
+	
+	
+🎬 Demo (Video)
+
+Watch the demo right here 👇
+
+https://github.com/aarefinn/website_laravel_Area71/raw/main/docs/demo/area71-academy-demo.mp4
+
+(GitHub supports inline playback for .mp4 files)
+
+📂 Project Structure (Key)
+app/
+database/
+public/
+resources/
+routes/
+storage/
+docs/
+ ├─ screenshots/
+ ├─ course-images/
+ └─ demo/
+
+🧪 Database Seeding
+
+Run the following command to seed initial data:
+
 php artisan migrate --seed
-php artisan serve
+
+
+Custom seeders are inside database/seeders.
+
+🗺️ Roadmap
+
+ Full course → order → dashboard flow
+
+ Student purchase history UI
+
+ Stripe/SSLCOMMERZ sandbox toggle in .env
+
+ Enrollment reports for admin
+
+
+📄 License
+
+This project is open-source under the MIT license.
+
+
+---
