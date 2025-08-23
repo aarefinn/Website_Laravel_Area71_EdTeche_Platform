@@ -35,7 +35,6 @@ php artisan migrate --seed
 php artisan storage:link
 php artisan serve
 
-
 Access the app 👉 http://127.0.0.1:8000
 
 🧰 Tech Stack
@@ -52,22 +51,8 @@ Others: DataTables, MVC Pattern
 
 📸 Screenshots
 🏠 Home
-
-
-
-
-
-
 📚 Courses
-
-
-
-
 🛒 Cart & Auth
-
-
-
-
 📞 Contact
 
 🎓 Course Images (Promo)
@@ -78,7 +63,7 @@ Amazon FBA	Bundle	Daraz	Supply Chain
 	
 🎬 Demo (Video)
 
-Watch the demo right here 👇
+👉 Watch the demo right here 👇
 
 https://github.com/aarefinn/website_laravel_Area71/raw/main/docs/demo/area71-academy-demo.mp4
 
@@ -115,10 +100,6 @@ Custom seeders are inside database/seeders.
 
  Enrollment reports for admin
 
-
 📄 License
 
 This project is open-source under the MIT license.
-
-
----
