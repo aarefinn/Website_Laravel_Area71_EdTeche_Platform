@@ -52,9 +52,14 @@
                             style="background: #142220; border-radius: 12px; overflow: hidden; padding: 20px; text-align: center; width: 100%; height: 100%; box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); transition: 0.3s;">
                             
                             <!-- Course Image -->
-                            <div class="course-img" style="border-radius: 10px; overflow: hidden;">
-                                <img src="{{ asset('storage/' . $course->image) }}" alt="{{ $course->title }}" 
+                            <div class="course-img" style="border-radius: 10px; overflow: hidden; position: relative;">
+                                <img src="{{ asset('storage/' . $course->photo) }}" alt="{{ $course->title }}" 
                                     style="width: 100%; border-radius: 10px; transition: transform 0.3s;">
+                                @if($course->discount > 0)
+                                    <div style="position: absolute; top: 10px; right: 10px; background: #ff4444; color: white; padding: 4px 8px; border-radius: 15px; font-size: 12px; font-weight: bold;">
+                                        Save {{ number_format(($course->discount / $course->price) * 100, 0) }}%
+                                    </div>
+                                @endif
                             </div>
                             
                             <!-- Course Content -->
@@ -70,7 +75,12 @@
                             <!-- Course Price & Buy Button -->
                             <div style="margin-top: 20px;"> 
                                 <p style="color: #fff; font-size: 18px; font-weight: bold; margin-bottom: 10px;">
-                                    Price: <span style="color: #F6D273;">${{ $course->price }}</span>
+                                    @if($course->discount > 0)
+                                        <span style="color: #888; text-decoration: line-through; margin-right: 10px;">${{ number_format($course->price, 2) }}</span>
+                                        <span style="color: #F6D273;">${{ number_format($course->price - $course->discount, 2) }}</span>
+                                    @else
+                                        Price: <span style="color: #F6D273;">${{ number_format($course->price, 2) }}</span>
+                                    @endif
                                 </p>
                                 <form action="{{ route('course.addToCart', $course->id) }}" method="POST">
                                     @csrf

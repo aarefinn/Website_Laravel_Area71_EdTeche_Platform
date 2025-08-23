@@ -98,8 +98,8 @@
               @foreach($enrolledCourses as $course)
               <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                  @if($course->image)
-                    <img class="card-img-top" src="{{ asset('storage/photos/1/'.$course->image) }}" alt="{{ $course->title }}">
+                  @if($course->photo)
+                    <img class="card-img-top" src="{{ asset('storage/'.$course->photo) }}" alt="{{ $course->title }}">
                   @endif
                   <div class="card-body">
                     <h5 class="card-title">{{ $course->title }}</h5>

@@ -39,7 +39,7 @@
                             style="background: #142220; border-radius: 12px; padding: 20px; text-align: center; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                             
                             <!-- Course Image -->
-                            <img src="{{ asset('storage/' . $item->course->image) }}" alt="{{ $item->course->title }}" 
+                            <img src="{{ asset('storage/' . $item->course->photo) }}" alt="{{ $item->course->title }}" 
                                 style="width: 100%; max-width: 250px; margin: auto; border-radius: 10px;">
 
                             <!-- Course Details -->

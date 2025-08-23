@@ -99,7 +99,7 @@
                             @foreach($enrolledCourses as $course)
                                 <div class="col-md-4 mb-4">
                                     <div class="card h-100">
-                                        <img src="{{ asset('storage/photos/1/' . $course->image) }}" class="card-img-top" alt="{{ $course->title }}">
+                                        <img src="{{ asset('storage/' . $course->photo) }}" class="card-img-top" alt="{{ $course->title }}">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $course->title }}</h5>
                                             <p class="card-text">{{ Str::limit($course->description, 100) }}</p>
