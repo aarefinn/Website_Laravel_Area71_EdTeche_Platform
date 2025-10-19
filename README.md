@@ -48,20 +48,20 @@ Access the app 👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 - Others: DataTables, MVC Pattern
 
 ---
-
 ## 📸 Screenshots
 
-![Academy Bundle](screenshots/Area71-Academy-Bundle.jpg)
-![Login/Register](screenshots/login-or-register-page.jpg)
-![Supply Chain](screenshots/supply-chain.jpg)
-![Course Table](screenshots/Course-database-table.jpg)
-![Cart Error](screenshots/addto-cart-error-without-login.jpg)
-![Home 1](screenshots/home1.jpg)
-![Home 2](screenshots/home2.jpg)
-![Contact Us](screenshots/contact-us.jpg)
-![Courses](screenshots/courses.jpg)
-![Daraz Seller](screenshots/daraz.jpg)
-![Amazon FBA Mastery](screenshots/amazon-fba-mastery.jpg)
+![Academy Bundle](screenshots/Area71-Academy-Bundle.webp)
+![Login/Register](screenshots/login%20or%20register%20page%20.png)
+![Supply Chain](screenshots/supply-chain.webp)
+![Course Table](screenshots/Course%20database%20table%20.png)
+![Cart Error](screenshots/addto%20cart%20error%20without%20login%20.png)
+![Home 1](screenshots/home1.png)
+![Home 2](screenshots/home2.png)
+![Home 3](screenshots/home%203%20.png)
+![Contact Us](screenshots/contact%20us.png)
+![Courses](screenshots/courses%20.png)
+![Daraz Seller](screenshots/daraz.webp)
+![Amazon FBA Mastery](screenshots/amazon-fba-mastery.webp)
 
 ---
 
