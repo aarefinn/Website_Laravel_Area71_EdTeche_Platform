@@ -38,7 +38,7 @@ php artisan serve
 Access the app 👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
-
+ 
 ## 🧰 Tech Stack
 
 - Backend: Laravel 10, PHP 8.1+
