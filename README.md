@@ -27,7 +27,6 @@ This is the **localhost build** of the **Area71 Academy Training Platform**, a L
 1. Clone or download this project.
 2. Run the following commands:
 
-```bash
 composer install
 cp .env.example .env
 php artisan key:generate
@@ -35,19 +34,20 @@ php artisan migrate --seed
 php artisan storage:link
 php artisan serve
 
-Access the app 👉 http://127.0.0.1:8000
 
-🧰 Tech Stack
+Access the app 👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-Backend: Laravel 10, PHP 8.1+
+---
 
-Database: MySQL
+## 🧰 Tech Stack
 
-Frontend: Blade Templating, Bootstrap/Tailwind
+- Backend: Laravel 10, PHP 8.1+
+- Database: MySQL
+- Frontend: Blade Templating, Bootstrap/Tailwind
+- Payment: SSLCOMMERZ Gateway
+- Others: DataTables, MVC Pattern
 
-Payment: SSLCOMMERZ Gateway
-
-Others: DataTables, MVC Pattern
+---
 
 ## 📸 Screenshots
 
@@ -73,18 +73,10 @@ Others: DataTables, MVC Pattern
 
 _GitHub supports inline playback for .mp4 files_
 
-	
-	
-	
-🎬 Demo (Video)
+---
 
-👉 Watch the demo right here 👇
+## 📂 Project Structure (Key)
 
-https://github.com/aarefinn/website_laravel_Area71/raw/main/docs/demo/area71-academy-demo.mp4
-
-(GitHub supports inline playback for .mp4 files)
-
-📂 Project Structure (Key)
 app/
 database/
 public/
@@ -92,29 +84,34 @@ resources/
 routes/
 storage/
 docs/
- ├─ screenshots/
- ├─ course-images/
- └─ demo/
+├─ screenshots/
+├─ course-images/
+└─ demo/
 
-🧪 Database Seeding
+
+---
+
+## 🧪 Database Seeding
 
 Run the following command to seed initial data:
 
 php artisan migrate --seed
 
+text
 
-Custom seeders are inside database/seeders.
+Custom seeders are inside `database/seeders`.
 
-🗺️ Roadmap
+---
 
- Full course → order → dashboard flow
+## 🗺️ Roadmap
 
- Student purchase history UI
+- Full course → order → dashboard flow
+- Student purchase history UI
+- Stripe/SSLCOMMERZ sandbox toggle in .env
+- Enrollment reports for admin
 
- Stripe/SSLCOMMERZ sandbox toggle in .env
+---
 
- Enrollment reports for admin
-
-📄 License
+## 📄 License
 
 This project is open-source under the MIT license.
