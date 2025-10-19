@@ -49,14 +49,29 @@ Payment: SSLCOMMERZ Gateway
 
 Others: DataTables, MVC Pattern
 
-📸 Screenshots
-🏠 Home
-📚 Courses
-🛒 Cart & Auth
-📞 Contact
+## 📸 Screenshots
 
-🎓 Course Images (Promo)
-Amazon FBA	Bundle	Daraz	Supply Chain
+![Academy Bundle](screenshots/Area71-Academy-Bundle.jpg)
+![Login/Register](screenshots/login-or-register-page.jpg)
+![Supply Chain](screenshots/supply-chain.jpg)
+![Course Table](screenshots/Course-database-table.jpg)
+![Cart Error](screenshots/addto-cart-error-without-login.jpg)
+![Home 1](screenshots/home1.jpg)
+![Home 2](screenshots/home2.jpg)
+![Contact Us](screenshots/contact-us.jpg)
+![Courses](screenshots/courses.jpg)
+![Daraz Seller](screenshots/daraz.jpg)
+![Amazon FBA Mastery](screenshots/amazon-fba-mastery.jpg)
+
+---
+
+## 🎬 Demo Video
+
+👉 Watch the demo right here 👇
+
+[Demo Video](screenshots/2025-08-23-00-10-58.mp4)
+
+_GitHub supports inline playback for .mp4 files_
 
 	
 	
