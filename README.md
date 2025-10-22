@@ -1,4 +1,4 @@
-# 📚 Area71 Academy – Laravel Training Platform (Localhost Build)
+# 📚 Area71 Academy – Training Platform (Localhost Build)
 
 ![Laravel](https://img.shields.io/badge/Laravel-10.x-red)
 ![PHP](https://img.shields.io/badge/PHP-%3E=8.1-blue)
